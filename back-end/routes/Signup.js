@@ -9,7 +9,6 @@ router.post('/signup', (req, res) => {
 
     try {
         const { name, email, password } = req.body
-       
             userModel.create({
                 name,
                 email,
