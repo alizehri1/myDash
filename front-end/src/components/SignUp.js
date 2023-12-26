@@ -1,25 +1,46 @@
 import React, { useState } from 'react';
 // import './signup.css';
-import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 const SignUp = () => {
-  const [names, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
-  const [conpass, setConPass] = useState('');
+  let navigate=useNavigate()
+  // const [names, setName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [pass, setPass] = useState('');
+  // const [conpass, setConPass] = useState('');
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    password: ''
+  })
+  const changeHandler = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value })
+  }
   const collectData = (e) => {
     e.preventDefault();
 
-    console.log(names, email, pass, conpass);
-    // try {
-    //   axios.post('http://localhost:000/create', {
-    //     names,
-    //     email,
-    //     pass,
-    //   });
-    // } catch (e) {
-    //   console.log(e);
-    // }
+    // console.log(names, email, pass, conpass);
+    try {
+      axios.post('http://localhost:5000/api/signup', {
+        name: data.name,
+        email: data.email,
+        password: data.password
+      }).then((result)=>{
+        console.log(result)
+        navigate('/')
+
+      }).catch((err)=>{
+        console.log(err)
+      });
+     
+    } catch (e) {
+      console.log(e);
+    }
+    setData({
+      name: '',
+      email: '',
+      password: ''
+    })
   };
 
   const mainStyle = {
@@ -111,8 +132,8 @@ const SignUp = () => {
             placeholder='Enter Your First Name'
             required
             style={boxInputStyle}
-            value={names}
-            onChange={(e) => setName(e.target.value)}
+            value={data.name}
+            onChange={changeHandler}
           />
 
           <input
@@ -121,27 +142,19 @@ const SignUp = () => {
             placeholder='Enter Your Email Address'
             required
             style={boxInputStyle}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={data.email}
+            onChange={changeHandler}
           />
           <input
             type='password'
-            name='pass'
+            name='password'
             placeholder='Password'
             required
             style={boxInputStyle}
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
+            value={data.password}
+            onChange={changeHandler}
           />
-          <input
-            type='password'
-            name='cpass'
-            placeholder='Confirm Password'
-            required
-            style={boxInputStyle}
-            value={conpass}
-            onChange={(e) => setConPass(e.target.value)}
-          />
+
           <button style={loginBtnStyle}>Submit</button>
           {/* <input type='button' value='signup' style={loginBtnStyle} /> */}
         </form>
