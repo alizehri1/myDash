@@ -9,15 +9,13 @@ router.post('/signup', (req, res) => {
 
     try {
         const { name, email, password } = req.body
-        let user=userModel.findOne({email})
-        if(!user){
+       
             userModel.create({
                 name,
                 email,
                 password
             })
-        }
-       
+     
         res.send('user created')
 
     }

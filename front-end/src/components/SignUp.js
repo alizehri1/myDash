@@ -26,7 +26,7 @@ const SignUp = () => {
         email: data.email,
         password: data.password
       }).then((result)=>{
-        console.log(result)
+        console.log(result, 'gaya data')
         navigate('/')
 
       }).catch((err)=>{
