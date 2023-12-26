@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './adp.css';
 
-const AddProducts = () => {
+const AddBlog = () => {
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
@@ -54,4 +54,4 @@ const AddProducts = () => {
   );
 };
 
-export default AddProducts;
+export default AddBlog;

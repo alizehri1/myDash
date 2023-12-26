@@ -13,10 +13,10 @@ const Nav = () => {
             style={{ listStyle: 'none', padding: 0, margin: 0 }}
           >
             <li style={{ display: 'inline', marginRight: '10px' }}>
-              <Link to='/'>Products</Link>
+              <Link to='/'>Blogs</Link>
             </li>
             <li style={{ display: 'inline', marginRight: '10px' }}>
-              <Link to='/add'>Add Products</Link>
+              <Link to='/add'>Add Blogs</Link>
             </li>
             {/* <li style={{ display: 'inline', marginRight: '10px' }}>
               <Link to='/update'>Update Products</Link>
