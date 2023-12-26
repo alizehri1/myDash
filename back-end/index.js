@@ -19,6 +19,7 @@ app.use(cors());
 // });
 
 app.use('/api' , require('./routes/Signup'))
+app.use('/api' , require('./routes/Login'))
 
 
 app.listen(5000, (err) => {

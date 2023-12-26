@@ -1,13 +1,46 @@
 import React, { useState } from 'react';
-
+// import './signup.css';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 const Login = () => {
-  const [names, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
+  
+  let navigate=useNavigate()
+  // const [names, setName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [pass, setPass] = useState('');
+  // const [conpass, setConPass] = useState('');
+  const [data, setData] = useState({
+    name: '', email: '',
+    password: ''
+  })
+  const changeHandler = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value })
+  }
   const collectData = (e) => {
     e.preventDefault();
 
-    console.log(names, email, pass);
+    // console.log(names, email, pass, conpass);
+    try {
+      axios.post('http://localhost:5000/api/login', {
+       
+        email: data.email,
+        password: data.password
+      }).then((result)=>{
+        console.log(result, 'gaya data')
+        navigate('/')
+
+      }).catch((err)=>{
+        console.log("axios me masla")
+      });
+     
+    } catch (e) {
+      console.log(e);
+    }
+    setData({
+    
+      email: '',
+      password: ''
+    })
   };
 
   const mainStyle = {
@@ -80,15 +113,7 @@ const Login = () => {
       </div>
       <div style={mainStyle}>
         <form action='POST' onSubmit={collectData}>
-          <input
-            type='text'
-            name='name'
-            placeholder='Enter Your First Name'
-            required
-            style={boxInputStyle}
-            value={names}
-            onChange={(e) => setName(e.target.value)}
-          />
+        
 
           <input
             type='email'
@@ -96,20 +121,27 @@ const Login = () => {
             placeholder='Enter Your Email Address'
             required
             style={boxInputStyle}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={data.email}
+            onChange={changeHandler}
           />
           <input
             type='password'
-            name='pass'
+            name='password'
             placeholder='Password'
             required
             style={boxInputStyle}
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
+            value={data.password}
+            onChange={changeHandler}
           />
+
           <button style={loginBtnStyle}>Submit</button>
+          {/* <input type='button' value='signup' style={loginBtnStyle} /> */}
         </form>
+        <p >or</p>
+        <br />
+        <Link  to='/login'>
+          Already have an account
+        </Link>
       </div>
     </main>
   );
