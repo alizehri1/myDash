@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const SignUp = () => {
-  let navigate=useNavigate()
+  let navigate = useNavigate();
   // const [names, setName] = useState('');
   // const [email, setEmail] = useState('');
   // const [pass, setPass] = useState('');
@@ -11,36 +11,37 @@ const SignUp = () => {
   const [data, setData] = useState({
     name: '',
     email: '',
-    password: ''
-  })
+    password: '',
+  });
   const changeHandler = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value })
-  }
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
   const collectData = (e) => {
     e.preventDefault();
 
     // console.log(names, email, pass, conpass);
     try {
-      axios.post('http://localhost:5000/api/signup', {
-        name: data.name,
-        email: data.email,
-        password: data.password
-      }).then((result)=>{
-        console.log(result, 'gaya data')
-        navigate('/')
-
-      }).catch((err)=>{
-        console.log(err)
-      });
-     
+      axios
+        .post('http://localhost:5000/api/signup', {
+          name: data.name,
+          email: data.email,
+          password: data.password,
+        })
+        .then((result) => {
+          console.log(result, 'gaya data');
+          navigate('/');
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (e) {
       console.log(e);
     }
     setData({
       name: '',
       email: '',
-      password: ''
-    })
+      password: '',
+    });
   };
 
   const mainStyle = {
@@ -110,10 +111,9 @@ const SignUp = () => {
     marginLeft: '25px',
   };
   const responsiveMainStyle = {
-    width: '90%', // Adjusted width for smaller screens
-    // maxWidth: '410px', // Added a max-width for larger screens
-    margin: '0 auto', // Center the main container horizontally
-    padding: '20px', // Added padding for spacing
+    width: '90%',
+    margin: '0 auto',
+    padding: '20px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flexEnd',
@@ -156,10 +156,8 @@ const SignUp = () => {
           />
 
           <button style={loginBtnStyle}>Submit</button>
-          {/* <input type='button' value='signup' style={loginBtnStyle} /> */}
         </form>
-        <p style={paragraphStyles}>or</p>
-        <br />
+
         <Link style={logLink} to='/login'>
           Already have an account
         </Link>

@@ -1,93 +1,106 @@
-// import React, { useState } from 'react';
-// import './adp.css';
-
-// const TotalProducts = () => {
-//   const [productName, setProductName] = useState('');
-//   const [price, setPrice] = useState('');
-//   const [description, setDescription] = useState('');
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     // Here you can perform actions with the form data like sending it to an API
-//     console.log('Product Name:', productName);
-//     console.log('Price:', price);
-//     console.log('Description:', description);
-//     // Add your logic to send this data to the backend or perform other operations
-//   };
-
-//   return (
-//     <div>
-//       <h2 className='headings'>Search Product</h2>
-//       <form onSubmit={handleSubmit}>
-//         <div>
-//           <label htmlFor='productName'>Product Name:</label>
-//           <input
-//             type='text'
-//             id='productName'
-//             value={productName}
-//             onChange={(e) => setProductName(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <div>
-//           <label htmlFor='price'>Filter Price:</label>
-//           <input
-//             type='number'
-//             id='price'
-//             value={price}
-//             onChange={(e) => setPrice(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <div>
-//           <label htmlFor='description'>Advance Features:</label>
-//           <textarea
-//             id='description'
-//             value={description}
-//             onChange={(e) => setDescription(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <button type='submit'>Search Product</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default TotalProducts;
 import React from 'react';
-// import './YourComponent.css';
+import './home.css';
 
 function HomePage() {
   return (
     <div>
-      <section id='search-box'>
-        <div className='sbox'>
-          <div className='searchbox'>{/* Your search box content */}</div>
+      <section id='hero'>
+        <div className='content'>
+          <p>Travel Blog</p>
+          <h1>
+            Tell A <span style={{ color: '#088178' }}>Tale.</span>
+          </h1>
+          <p>
+            99 Destinations, 99 Stories, One Incredible{' '}
+            <span style={{ color: '#088178' }}>Blog</span>
+          </p>
         </div>
       </section>
 
-      <div className='top'>
-        <h2>
-          <span className='top1'>TOP</span> CATEGORIES
-        </h2>
-      </div>
+      {/* <section id='blog-form'>
+        <div className='container'>
+          <h1 className='my-4' style={{ color: '#088178' }}>
+            ADD YOUR BLOG
+          </h1>
+          <form className='add-blog'>
+            <div className='mb-3'>
+              <label htmlFor='name' className='form-label'>
+                Full Name
+              </label>
+              <input
+                type='text'
+                className='form-control'
+                id='name'
+                name='name'
+                placeholder='Enter name'
+                required
+              />
+            </div>
+            <div className='mb-3'>
+              <label htmlFor='email' className='form-label'>
+                Email Address
+              </label>
+              <input
+                type='text'
+                className='form-control'
+                id='email'
+                name='email'
+                placeholder='Enter Email'
+                required
+              />
+            </div>
+            <div className='mb-3'>
+              <label htmlFor='date' className='form-label'>
+                Blog Date
+              </label>
+              <input
+                type='date'
+                className='form-control'
+                id='date'
+                name='date'
+                required
+              />
+            </div>
+            <div className='mb-3'>
+              <label htmlFor='title' className='form-label'>
+                Blog Title
+              </label>
+              <input
+                type='text'
+                className='form-control'
+                id='title'
+                name='title'
+                placeholder='Blog Title'
+                required
+              />
+            </div>
+            <div className='mb-3'>
+              <label htmlFor='blog' className='form-label'>
+                Blog:
+              </label>
+              <input
+                type='text'
+                className='form-control'
+                id='blog'
+                name='blog'
+                placeholder='Write Your Blog'
+                required
+              />
+            </div>
 
-      <section id='slider'>
-        <ul id='autoWidth' className='cs-hidden'>
-          {/* List of items */}
-          {/* Repeat this block for each item */}
-          <li className='item-a'>
-            <div className='box1'>{/* Item content */}</div>
-          </li>
-          {/* End of item block */}
-        </ul>
-
-        <div className='shop-button'>
-          <button className='shop-btn'>
-            <a href='shop.html'> Find More </a>
-          </button>
+            <button type='submit' className='btn btn-success'>
+              Add Blog
+            </button>
+          </form>
         </div>
+      </section> */}
+
+      <h1 className='text-center my-5' style={{ color: '#088178' }}>
+        LATEST BLOGS
+      </h1>
+
+      <section id='main' className='container'>
+        {/* Add content for the latest blogs section */}
       </section>
     </div>
   );
