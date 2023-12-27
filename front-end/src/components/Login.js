@@ -21,8 +21,7 @@ const Login = () => {
 
     // console.log(names, email, pass, conpass);
     try {
-      axios.post('http://localhost:5000/api/login', {
-       
+      axios.post('http://localhost:5000/api/login', {  
         email: data.email,
         password: data.password
       }).then((result)=>{
