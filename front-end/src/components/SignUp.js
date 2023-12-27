@@ -21,16 +21,17 @@ const SignUp = () => {
 
     // console.log(names, email, pass, conpass);
     try {
-      axios.post('http://localhost:5000/api/signup', {
+      axios.post('http://localhost:5001/api/signup', {
         name: data.name,
         email: data.email,
         password: data.password
       }).then((result)=>{
-        console.log(result, 'gaya data')
-        navigate('/login')
-
+        console.log(result)
+        navigate('/')
+       
       }).catch((err)=>{
         console.log(err)
+        alert(err.response.data.msg)
       });
      
     } catch (e) {

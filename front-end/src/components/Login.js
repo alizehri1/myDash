@@ -21,7 +21,7 @@ const Login = () => {
 
     // console.log(names, email, pass, conpass);
     try {
-      axios.post('http://localhost:5000/api/login', {  
+      axios.post('http://localhost:5001/api/login', {  
         email: data.email,
         password: data.password
       }).then((result)=>{
@@ -30,8 +30,8 @@ const Login = () => {
         navigate('/')
 
       }).catch((err)=>{
-        console.log("axios me masla")
-        alert('Wrong credentials')
+       console.log(err)
+        alert(err.response.data.msg)
       });
      
     } catch (e) {

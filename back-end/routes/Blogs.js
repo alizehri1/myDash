@@ -20,16 +20,13 @@ router.post('/blogs', async (req, res) => {
                 email,
                 title,
                 description
-
             })
-
             res.status(200).json({msg:"Blog is created"})
         }
-
     }
     catch (err) {
         console.log(err)
-    }
+    } 
 })
 
 module.exports = router
