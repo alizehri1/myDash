@@ -20,6 +20,7 @@ app.use(cors());
 
 app.use('/api' , require('./routes/Signup'))
 app.use('/api' , require('./routes/Login'))
+app.use('/api' , require('./routes/Blogs'))
 
 
 app.listen(5000, (err) => {
