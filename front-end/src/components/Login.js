@@ -27,10 +27,12 @@ const Login = () => {
         password: data.password
       }).then((result)=>{
         console.log(result, 'gaya data')
+        localStorage.setItem('token', result.data.authToken)
         navigate('/')
 
       }).catch((err)=>{
         console.log("axios me masla")
+        alert('Wrong credentials')
       });
      
     } catch (e) {

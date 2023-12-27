@@ -3,21 +3,24 @@ const mongoose = require('mongoose')
 const router = express.Router()
 const userModel = require('../models/Users')
 const {body, validationResult}=require('express-validator')
+const bcrypt= require('bcryptjs')
+const jwt = require("jsonwebtoken")
 
-router.post('/signup', (req, res) => {
+router.post('/signup', async (req, res) => {
 
-
+const salt = await bcrypt.genSalt(10)
+let secPassword= await bcrypt.hash(req.body.password, salt)
     try {
         let error=validationResult(req)
         if(!error.isEmpty()){
             return res.send(400).json({error:"error"})
         }
         else
-      {  const { name, email, password } = req.body
+      {  const { name, email } = req.body
             userModel.create({
                 name,
                 email,
-                password
+                password:secPassword
             })
      
         res.send('user created')}

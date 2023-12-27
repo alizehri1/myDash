@@ -4,6 +4,8 @@ import { AppBar, Toolbar, Typography } from '@mui/material';
 // import MenuIcon from '@mui/icons-material/Menu';
 
 const Nav = () => {
+  let token= localStorage.getItem('token')
+  console.log(token)
   return (
     <AppBar position='static'>
       <Toolbar>
@@ -21,6 +23,9 @@ const Nav = () => {
             {/* <li style={{ display: 'inline', marginRight: '10px' }}>
               <Link to='/update'>Update Products</Link>
             </li> */}
+           
+
+         
             <li style={{ display: 'inline', marginRight: '10px' }}>
               <Link to='/login'>logIn</Link>
             </li>
