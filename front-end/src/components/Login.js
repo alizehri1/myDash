@@ -38,7 +38,7 @@ const Login = () => {
     textAlign: 'center',
     marginTop: '10px',
     borderRadius: '7px',
-    backgroundColor: '#1976d2',
+    backgroundColor: '#088178',
     color: 'white',
     border: 'none',
     fontSize: '20px',
@@ -51,24 +51,23 @@ const Login = () => {
     fontSize: '50px',
     lineHeight: '64px',
     fontWeight: '700',
-    color: '#1976d2',
-
+    color: '#088178',
     margin: '0',
     padding: '0',
   };
   const container = {
     position: 'absolute',
     top: '30%',
-    left: '30%', // Center the container horizontally
-    transform: 'translateX(-100%)', // Center the container horizontally
+    left: '30%',
+    transform: 'translateX(-100%)',
     fontSize: '25px',
     marginLeft: '25px',
   };
   const responsiveMainStyle = {
-    width: '90%', // Adjusted width for smaller screens
+    width: '90%',
     height: '100vh',
-    margin: '0 auto', // Center the main container horizontally
-    padding: '20px', // Added padding for spacing
+    margin: '0 auto',
+    padding: '20px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flexEnd',

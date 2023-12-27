@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 .Nav-ul {
   list-style: none;
@@ -24,13 +25,23 @@
 }
 
 .Nav-ul li a:hover {
-  background-color: #0e5aa5;
+  background-color: #088178;
 }
 
+.headings {
+  /* position: absolute;
+  top: 80px; */
+  font-size: 60px;
+  line-height: 64px;
+  font-weight: 700;
+  color: #1976d2;
+  margin: 0;
+  padding: 0;
+}
+/* CSS */
 .footer {
-  background-color: #333;
-  color: #fff;
-  padding: 35px 0;
+  background-color: #e0e4f8;
+  padding: 20px 0;
   text-align: center;
 }
 
@@ -48,28 +59,22 @@ ul li {
   margin-bottom: 10px;
 }
 
-ul li a {
-  color: #fff;
+a {
   text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Adding transition for smoother color change */
 }
 
-ul li a:hover {
-  color: #0e5aa5;
+a:hover {
+  color: #088178;
 }
 
+/* Styling for copyright text */
 .copyright {
   margin-top: 20px;
+  color: #777;
   font-size: 14px;
-}
-.headings {
-  /* position: absolute;
-  top: 80px; */
-  font-size: 60px;
-  line-height: 64px;
-  font-weight: 700;
-  color: #1976d2;
-  margin: 0;
-  padding: 0;
 }
 
 @media only screen and (max-width: 600px) {
