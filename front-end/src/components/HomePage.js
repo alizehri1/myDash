@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from './Nav';
 // import './home.css';
 
 function HomePage() {
@@ -6,9 +7,10 @@ function HomePage() {
     'https://static.wixstatic.com/media/5bfb6f_26f1a5c736e544e09c63c82a4c792645~mv2_d_3839_1306_s_2.jpg/v1/fill/w_1898,h_653,al_b,q_85,usm_0.66_1.00_0.01,enc_auto/5bfb6f_26f1a5c736e544e09c63c82a4c792645~mv2_d_3839_1306_s_2.jpg';
   const divStyle = {
     backgroundImage: `url(${backgroundImageUrl})`,
-    height: '80vh',
+    minHeight: '80vh',
+    height: 'auto',
     width: '100%',
-    backgroundSize: 'contain',
+    backgroundSize: 'cover',
     backgroundPosition: 'center',
     color: '#fafafa',
     fontFamily: 'Open Sans',
@@ -20,6 +22,7 @@ function HomePage() {
     fontSize: '24px',
   };
   const contentStyle = {
+    height: '80%',
     textAlign: 'center',
     display: 'flex',
     alignItems: 'center',
@@ -49,9 +52,7 @@ function HomePage() {
         LATEST BLOGS
       </h1>
 
-      <section id='main' className='container'>
-        {/* Add content for the latest blogs section */}
-      </section>
+      <section id='main' className='container'></section>
     </div>
   );
 }

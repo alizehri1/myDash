@@ -39,6 +39,7 @@ textarea {
   box-sizing: border-box;
 }
 
+/* Style for submit button */
 button[type='submit'] {
   width: 100%;
   padding: 10px;
@@ -52,6 +53,7 @@ button[type='submit']:hover {
   background-color: #06695c;
 }
 
+/* Responsive styles for smaller screens */
 @media screen and (max-width: 600px) {
   form {
     max-width: 100%; /* Adjust maximum width for smaller screens */

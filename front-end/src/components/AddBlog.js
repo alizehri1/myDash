@@ -1,20 +1,41 @@
 import React, { useState } from 'react';
 import './adp.css';
-
+import axios from 'axios';
 const AddBlog = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [date, setDate] = useState('');
-  const [title, setTitle] = useState('');
-  const [blog, setBlog] = useState('');
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    title: '',
+    description: '',
+  });
 
-  const handleSubmit = (e) => {
+  const changeHandler = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Full Name:', name);
-    console.log('Email:', email);
-    console.log('Blog Date:', date);
-    console.log('Blog Title:', title);
-    console.log('Blog:', blog);
+    await axios
+      .post('http://localhost:5001/api/blogs', {
+        name: data.name,
+        email: data.email,
+        title: data.email,
+        description: data.description,
+      })
+      .then((result) => {
+        console.log(result);
+        alert(result.data.msg);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    setData({
+      name: '',
+      email: '',
+      title: '',
+      description: '',
+    });
+
     // Add logic to handle form submission here
   };
 
@@ -35,8 +56,8 @@ const AddBlog = () => {
                 name='name'
                 placeholder='Enter name'
                 required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={data.name}
+                onChange={changeHandler}
               />
             </div>
             <div className='mb-3'>
@@ -50,24 +71,11 @@ const AddBlog = () => {
                 name='email'
                 placeholder='Enter Email'
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={data.email}
+                onChange={changeHandler}
               />
             </div>
-            <div className='mb-3'>
-              <label htmlFor='date' className='form-label'>
-                Blog Date
-              </label>
-              <input
-                type='date'
-                className='form-control'
-                id='date'
-                name='date'
-                required
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-              />
-            </div>
+
             <div className='mb-3'>
               <label htmlFor='title' className='form-label'>
                 Blog Title
@@ -79,8 +87,8 @@ const AddBlog = () => {
                 name='title'
                 placeholder='Blog Title'
                 required
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                value={data.title}
+                onChange={changeHandler}
               />
             </div>
             <div className='mb-3'>
@@ -91,11 +99,11 @@ const AddBlog = () => {
                 type='text'
                 className='form-control'
                 id='blog'
-                name='blog'
+                name='description'
                 placeholder='Write Your Blog'
                 required
-                value={blog}
-                onChange={(e) => setBlog(e.target.value)}
+                value={data.description}
+                onChange={changeHandler}
               />
             </div>
 

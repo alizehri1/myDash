@@ -81,6 +81,9 @@ const Nav = () => {
               <li style={{ display: 'inline', marginRight: '10px' }}>
                 <Link to='/signup'>Register</Link>
               </li>
+              <li style={{ display: 'inline', marginRight: '10px' }}>
+                <Link to='/login'>Log-In</Link>
+              </li>
               {/* Add other menu items */}
             </ul>
           </Typography>

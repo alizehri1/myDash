@@ -1,13 +1,47 @@
 import React, { useState } from 'react';
-
+// import './signup.css';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 const Login = () => {
-  const [names, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
+  let navigate = useNavigate();
+  // const [names, setName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [pass, setPass] = useState('');
+  // const [conpass, setConPass] = useState('');
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  const changeHandler = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
   const collectData = (e) => {
     e.preventDefault();
 
-    console.log(names, email, pass);
+    // console.log(names, email, pass, conpass);
+    try {
+      axios
+        .post('http://localhost:5001/api/login', {
+          email: data.email,
+          password: data.password,
+        })
+        .then((result) => {
+          console.log(result, 'gaya data');
+          localStorage.setItem('token', result.data.authToken);
+          navigate('/');
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err.response.data.msg);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+    setData({
+      email: '',
+      password: '',
+    });
   };
 
   const mainStyle = {
@@ -47,22 +81,7 @@ const Login = () => {
     width: '100%',
     cursor: 'pointer',
   };
-  const h5 = {
-    fontSize: '50px',
-    lineHeight: '64px',
-    fontWeight: '700',
-    color: '#088178',
-    margin: '0',
-    padding: '0',
-  };
-  const container = {
-    position: 'absolute',
-    top: '30%',
-    left: '30%',
-    transform: 'translateX(-100%)',
-    fontSize: '25px',
-    marginLeft: '25px',
-  };
+
   const responsiveMainStyle = {
     width: '90%',
     height: '100vh',
@@ -72,43 +91,39 @@ const Login = () => {
     alignItems: 'center',
     justifyContent: 'flexEnd',
   };
+  const text = {
+    fontSize: '16px',
+    textAlign: 'center',
+  };
   return (
     <main style={responsiveMainStyle} className='mainBox'>
-      <div style={container}>
-        <h5 style={h5}>Login To Proceed </h5>
-      </div>
       <div style={mainStyle}>
         <form action='POST' onSubmit={collectData}>
-          <input
-            type='text'
-            name='name'
-            placeholder='Enter Your First Name'
-            required
-            style={boxInputStyle}
-            value={names}
-            onChange={(e) => setName(e.target.value)}
-          />
-
           <input
             type='email'
             name='email'
             placeholder='Enter Your Email Address'
             required
             style={boxInputStyle}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={data.email}
+            onChange={changeHandler}
           />
           <input
             type='password'
-            name='pass'
+            name='password'
             placeholder='Password'
             required
             style={boxInputStyle}
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
+            value={data.password}
+            onChange={changeHandler}
           />
+
           <button style={loginBtnStyle}>Submit</button>
         </form>
+
+        <Link to='/login'>
+          <p style={text}>Already have an account?</p>
+        </Link>
       </div>
     </main>
   );

@@ -19,11 +19,10 @@ app.use(cors());
 // });
 
 app.use('/api' , require('./routes/Signup'))
+app.use('/api' , require('./routes/Login'))
+app.use('/api' , require('./routes/Blogs'))
 
 
-app.listen(5000, (err) => {
-  if (err) {
-    console.log('error in port');
-  }
-  console.log('port is listening');
-});
+app.listen(5001, ()=>{
+  console.log('port is listening 5001 port')
+})
