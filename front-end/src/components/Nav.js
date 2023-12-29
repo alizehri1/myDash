@@ -38,6 +38,7 @@ const Nav = () => {
             fontFamily: 'Georgia, Times, serif',
             color: '#088178',
             fontWeight: 900,
+            marginRight: 'auto',
           },
         },
       },
@@ -69,6 +70,14 @@ const Nav = () => {
               className='Nav-ul'
               style={{ listStyle: 'none', padding: 0, margin: 0 }}
             >
+              <Link
+                to='/'
+                style={{ textDecoration: 'none', marginRight: '80px' }}
+                className='logo'
+              >
+                <span style={{ color: '#088178' }}>99</span>{' '}
+                <sup style={{ color: '#088178' }}>th</sup> Tales
+              </Link>
               <li style={{ display: 'inline', marginRight: '10px' }}>
                 <Typography variant='h6'>
                   {' '}
@@ -84,7 +93,6 @@ const Nav = () => {
               <li style={{ display: 'inline', marginRight: '10px' }}>
                 <Link to='/login'>Log-In</Link>
               </li>
-              {/* Add other menu items */}
             </ul>
           </Typography>
         </Toolbar>
