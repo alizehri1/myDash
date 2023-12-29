@@ -12,7 +12,6 @@ function HomePage() {
     }).catch((err)=>{
       console.log(err)
     })
-
   },[])
 console.log(blogs)
   const backgroundImageUrl =
@@ -68,9 +67,8 @@ console.log(blogs)
         {blogs.map((data)=>{
           return(
             <div>
-            <span>{data.email}</span><br>
-            </br>
-            <h4>{data.name}</h4>
+            <h3>{data.name}</h3>
+            <h5>{data.email}</h5>
             <h2>{data.title}</h2>
             <p>{data.description}</p>
             </div>
