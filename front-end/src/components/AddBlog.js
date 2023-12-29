@@ -18,7 +18,7 @@ const AddBlog = () => {
       .post('http://localhost:5001/api/blogs', {
         name: data.name,
         email: data.email,
-        title: data.email,
+        title: data.title,
         description: data.description,
       })
       .then((result) => {
