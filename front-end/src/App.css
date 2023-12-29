@@ -12,7 +12,7 @@
 
 .Nav-ul li {
   display: inline-block;
-  margin-left: 15px;
+  margin-left: 16px;
 }
 
 .Nav-ul li a {
@@ -25,19 +25,19 @@
 }
 
 .Nav-ul li a:hover {
-  background-color: #088178;
+  background-color: #088179;
 }
 .logo {
   margin-right: '15px';
 }
-.headings {
+/* .headings {
   font-size: 60px;
   line-height: 64px;
   font-weight: 700;
-  color: #1976d2;
+  color: #000000;
   margin: 0;
   padding: 0;
-}
+} */
 .footer {
   background-color: #e0e4f8;
   padding: 20px 0;
