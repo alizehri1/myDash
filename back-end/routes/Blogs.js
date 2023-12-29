@@ -24,4 +24,15 @@ router.post('/blogs', async (req, res) => {
   }
 });
 
+router.get('/readBlogs', async (req, res) => {
+  blogModel.find().then((blogs) => {
+    res.status(200).json(blogs)
+    // console.log(blogs)
+
+  }).catch((err) => {
+    console.log(err)
+  })
+
+})
+
 module.exports = router;

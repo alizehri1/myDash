@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from './Nav';
+import axios from 'axios'
 // import './home.css';
 
 function HomePage() {
+  const [blogs, setBlogs]=useState([])
+  useEffect(()=>{
+    axios.get('http://localhost:5001/api/readBlogs').then((blogs)=>{
+        setBlogs(blogs.data)
+        
+    }).catch((err)=>{
+      console.log(err)
+    })
+
+  },[])
+
   const backgroundImageUrl =
     'https://static.wixstatic.com/media/5bfb6f_26f1a5c736e544e09c63c82a4c792645~mv2_d_3839_1306_s_2.jpg/v1/fill/w_1898,h_653,al_b,q_85,usm_0.66_1.00_0.01,enc_auto/5bfb6f_26f1a5c736e544e09c63c82a4c792645~mv2_d_3839_1306_s_2.jpg';
   const divStyle = {
@@ -52,7 +64,10 @@ function HomePage() {
         LATEST BLOGS
       </h1>
 
-      <section id='main' className='container'></section>
+      <section id='main' className='container'>
+      
+      
+      </section>
     </div>
   );
 }
