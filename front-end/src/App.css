@@ -12,12 +12,12 @@
 
 .Nav-ul li {
   display: inline-block;
-  margin-right: 10px;
+  margin-left: 15px;
 }
 
 .Nav-ul li a {
   text-decoration: none;
-  color: #fff;
+  color: #333;
   padding: 8px 12px;
   background-color: inherit;
   border-radius: 4px;
@@ -27,10 +27,10 @@
 .Nav-ul li a:hover {
   background-color: #088178;
 }
-
+.logo {
+  margin-right: '15px';
+}
 .headings {
-  /* position: absolute;
-  top: 80px; */
   font-size: 60px;
   line-height: 64px;
   font-weight: 700;
@@ -38,7 +38,6 @@
   margin: 0;
   padding: 0;
 }
-/* CSS */
 .footer {
   background-color: #e0e4f8;
   padding: 20px 0;
