@@ -13,8 +13,7 @@ function HomePage() {
       })
       .catch((err) => {
         console.log(err);
-      });
-  }, []);
+      });  }, []);
   console.log(blogs);
   const backgroundImageUrl =
     'https://static.wixstatic.com/media/5bfb6f_26f1a5c736e544e09c63c82a4c792645~mv2_d_3839_1306_s_2.jpg/v1/fill/w_1898,h_653,al_b,q_85,usm_0.66_1.00_0.01,enc_auto/5bfb6f_26f1a5c736e544e09c63c82a4c792645~mv2_d_3839_1306_s_2.jpg';
@@ -110,16 +109,15 @@ function HomePage() {
         LATEST BLOGS
       </h1>
 
-      <section id='main' style={container}>
-        {blogs.map((data) => {
-          return (
-            <div style={blogContainerStyle}>
-              <h1 style={blogTitleStyle}>{data.title}:</h1>
-              <br />
-              <h4 style={blogSubtitleStyle}>Author: {data.name}</h4>
-
-              <p style={blogContentStyle}>{data.description}</p>
-              <p style={emailStyle}>Authors Email: {data.email}</p>
+      <section id='main' className='container'>
+        {blogs.map((data)=>{
+          return(
+            <div>
+            <span>{data.email}</span><br>
+            </br>
+            <h4>{data.name}</h4>
+            <h2>{data.title}</h2>
+            <p>{data.description}</p>
             </div>
           );
         })}
