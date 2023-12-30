@@ -57,6 +57,8 @@ function HomePage() {
   };
   const blogContainerStyle = {
     width: '300px',
+    maxHeight: '450px', // Set a maximum height for the content
+    overflow: 'hidden', // Hide content beyond the maximum height
     marginBottom: '30px',
     padding: '20px',
     boxShadow: '0 4px 8px 0 rgba(0,0,01,0.2)',
